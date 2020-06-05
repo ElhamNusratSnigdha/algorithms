@@ -63,28 +63,51 @@ console.log(makeTuples(input));
 Notation: O(n^2) - because of nested loops*/
 
 /*************** Algorithm 4 ***********************/
-
-let wr = (msg='----------') => document.
-write(`<br>${msg}`);
 function basicRecursion(max, current){
     if(current>max) return; //always, first statement should be the base case for recursion - how to stop the recursive loop, else we'll get stack overflow
-    wr(current);
+    console.log(current);
     basicRecursion(max, current+1);
 }
-console.log(basicRecursion(5,1));
-wr();
-wr();
+basicRecursion(5,1);
 /* Result:
 Notation: O(n)*/
 /*************** Algorithm 5 ***********************/
-/* Result:
-Notation: O(n)*/
+
+function fibonacci(n){
+    if(n<=2)return 1; //if(n===0||n===1)
+    else return fibonacci(n-1)+fibonacci(n-2);
+}
+console.log(fibonacci(3));
+/* Result: 2
+Notation: O(nlogn)*/
+
 /*************** Algorithm 6 ***********************/
-/* Result:
-Notation: O(n)*/
+function factorial(n) {
+    if(n<2) return 1;
+    else return n*factorial(n-1);
+}
+console.log(factorial(3));
+/* Result: 6
+Notation: O(n!)*/
+
 /*************** Algorithm 7 ***********************/
 /* Result:
 Notation: O(n)*/
 /*************** Algorithm 8 ***********************/
-/* If we have no loops just some calculation, Notation : O(1)
+
+/* 
+function abc(x,y) {}
+let abc = (x,y) => {}
+same thing
+
+let wr = (msg='----------')=> document.write(`<br>${msg}`);
+same as,
+function wr(msg){
+    if(msg){
+        msg = '--------';
+    }
+    return document.write('<br>' + msg);
+}
+
+If, we have no loops just some calculation, Notation : O(1)
 There are also, Notation: O(log n) - for divide & conquer/recursive */
