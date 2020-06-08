@@ -91,10 +91,130 @@ console.log(factorial(3));
 Notation: O(n!)*/
 
 /*************** Algorithm 7 ***********************/
+
+console.log('"This is Bubble Sort"');
+var bubbleSort = num7 => {  
+    do {
+      var swapped = false;
+      for (var i = 0; i < num7.length; i++) {
+        console.log(num7);
+        if (num7[i] > num7[i+1]) {
+          var temp = num7[i];
+          num7[i] = num7[i+1];
+          num7[i+1] = temp;
+          swapped = true;
+        }
+      }
+    } while(swapped);
+    console.log(num7);
+  };
+  
+var num7 = [10,5,8,2];
+bubbleSort(num7);
+
 /* Result:
-Notation: O(n)*/
+Notation: O(n^2)*/
+
 /*************** Algorithm 8 ***********************/
 
+console.log('"This is Insertion Sort"');
+
+var insertionSort = num8 => {  
+    for (let i = 1; i < num8.length; i++) {
+      for (let j = 0; j < i; j++) {
+        console.log(num8);
+        if (num8[i] < num8[j]) {
+          let spliced = num8.splice(i, 1);
+          num8.splice(j, 0, spliced[0]);
+        }
+      }
+    }
+  };
+var num8 = [10,5,8,2];
+insertionSort(num8);
+
+/* Result:
+Notation: O(n^2)*/
+
+/*************** Algorithm 9 ***********************/
+console.log('"This is Merge Sort"');
+
+const mergeSort = num9 => {
+    if (num9.length < 2) {
+      return num9;
+    }
+    const length = num9.length;
+    const middle = Math.floor(length / 2);
+    const left = num9.slice(0, middle);
+    const right = num9.slice(middle);
+    
+    return merge(mergeSort(left), mergeSort(right));
+  };
+  
+  const merge = (left, right) => {
+    
+    const results = [];
+    
+    while (left.length && right.length) {
+      
+      if (left[0] <= right[0]) {
+        results.push(left.shift());
+      }
+      else {
+        results.push(right.shift());
+      }
+    }
+    
+    return results.concat(left, right);
+  };
+
+    var num9 = [10,5,8,2];
+    console.log(mergeSort(num9));
+/* Result:
+Notation: O(nlogn)*/
+
+/*************** Algorithm 10 ***********************/
+
+console.log('"This is Quick Sort"');
+    
+    const quickSort = (num10) => {
+        if(num10.length <=1) return num10;
+
+        var pivot = num10[num10.length - 1];
+        let left = [];
+        let right = [];
+
+        for(let i=0;i<num10.length-1;i++){
+            if(num10[i]<pivot){
+                left.push(num10[i]);
+            }
+            else {
+                right.push(num10[i]);
+            }
+        }
+
+        return [...quickSort(left),pivot, ...quickSort(right)];
+        // return quickSort(left).concat(pivot, quickSort(right));
+    }
+
+      const num10 = [10, 5, 8, 2];
+      console.log(quickSort(num10));
+
+/* Result:
+Notation: O(nlogn)*/
+
+/*************** Algorithm 11 ***********************/
+
+/* Result:
+Notation: O(n^2)*/
+
+/*************** Algorithm 12 ***********************/
+
+/* Result:
+Notation: O(n^2)*/
+
+/*************** Algorithm 13 ***********************/
+    
 /* 
 function abc(x,y) {}
 let abc = (x,y) => {}
